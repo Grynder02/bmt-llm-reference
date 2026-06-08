@@ -1,0 +1,19 @@
+{
+  "name": "bmt-llm-reference",
+  "version": "1.0.0",
+  "description": "Community-maintained LLM model reference — cloud, local, VRAM, capability tags, hardware tiers",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.0"
+  }
+}

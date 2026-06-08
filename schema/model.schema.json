@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BMT LLM Reference — Model Schema",
+  "type": "object",
+  "required": ["$schema", "last_updated", "models"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "last_updated": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name", "provider", "type", "tags", "desc",
+          "api_string", "free_tier", "moe",
+          "context_k", "reliable_context_k", "last_verified"
+        ],
+        "properties": {
+          "name":             { "type": "string", "minLength": 1 },
+          "provider":         { "type": "string", "minLength": 1 },
+          "type":             { "type": "string", "enum": ["cloud", "local"] },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["coding","reasoning","vision","speed","agents","writing","multimodal","math","embedding"]
+            },
+            "minItems": 1
+          },
+          "desc":             { "type": "string", "minLength": 10 },
+          "api_string":       { "type": "string" },
+          "free_tier":        { "type": "boolean" },
+          "openrouter_id":    { "type": ["string", "null"] },
+          "vram_gb":          { "type": ["number", "null"] },
+          "vram_note":        { "type": ["string", "null"] },
+          "moe":              { "type": "boolean" },
+          "active_params_b":  { "type": ["number", "null"] },
+          "total_params_b":   { "type": ["number", "null"] },
+          "quants": {
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["type", "vram_gb"],
+                  "properties": {
+                    "type":    { "type": "string" },
+                    "vram_gb": { "type": "number" }
+                  }
+                }
+              }
+            ]
+          },
+          "gpu_tiers": {
+            "oneOf": [
+              { "type": "null" },
+              { "type": "array", "items": { "type": "string" } }
+            ]
+          },
+          "arc_tested":         { "type": ["boolean", "null"] },
+          "context_k":          { "type": "number", "minimum": 1 },
+          "reliable_context_k": { "type": "number", "minimum": 1 },
+          "tool_reliability": {
+            "oneOf": [
+              { "type": "null" },
+              { "type": "integer", "minimum": 1, "maximum": 5 }
+            ]
+          },
+          "swe_bench":     { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+          "gpqa_diamond":  { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+          "updated":       { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
+          "last_verified": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

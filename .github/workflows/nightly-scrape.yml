@@ -1,0 +1,164 @@
+name: Nightly model scraper
+
+on:
+  schedule:
+    # 3am UTC daily — quiet time, avoids API rate limit spikes
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    # Manual trigger from Actions tab for testing
+    inputs:
+      dry_run:
+        description: 'Dry run — generate auto-discovered.json but do not open PR'
+        required: false
+        default: 'false'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run scraper
+        id: scrape
+        run: |
+          node scripts/scrape-models.js
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
+      - name: Read scrape log
+        id: log
+        if: always()
+        run: |
+          if [ -f data/scrape-log.json ]; then
+            NEW_COUNT=$(node -e "console.log(require('./data/scrape-log.json').new_count || 0)")
+            echo "new_count=$NEW_COUNT" >> $GITHUB_OUTPUT
+            OR_ADDED=$(node -e "console.log(require('./data/scrape-log.json').sources?.openrouter?.added || 0)")
+            OL_ADDED=$(node -e "console.log(require('./data/scrape-log.json').sources?.ollama?.added || 0)")
+            HF_ADDED=$(node -e "console.log(require('./data/scrape-log.json').sources?.huggingface?.added || 0)")
+            echo "or_added=$OR_ADDED" >> $GITHUB_OUTPUT
+            echo "ol_added=$OL_ADDED" >> $GITHUB_OUTPUT
+            echo "hf_added=$HF_ADDED" >> $GITHUB_OUTPUT
+          else
+            echo "new_count=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Skip if no new models
+        if: steps.scrape.outputs.exit_code == '2' || steps.log.outputs.new_count == '0'
+        run: |
+          echo "No new models found. Nothing to do."
+          exit 0
+
+      - name: Skip if dry run
+        if: github.event.inputs.dry_run == 'true'
+        run: |
+          echo "Dry run — auto-discovered.json written but no PR opened."
+          cat data/auto-discovered.json | head -100
+          exit 0
+
+      - name: Create branch and commit
+        if: steps.log.outputs.new_count != '0' && github.event.inputs.dry_run != 'true'
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          BRANCH="auto/scrape-${DATE}"
+          git config user.name  "bmt-scraper[bot]"
+          git config user.email "scraper@bmt-llm-reference.bot"
+          git checkout -b "$BRANCH"
+          git add data/auto-discovered.json data/scrape-log.json
+          git commit -m "auto: nightly scrape ${DATE} — ${{ steps.log.outputs.new_count }} new entries
+
+          Sources:
+          - OpenRouter: +${{ steps.log.outputs.or_added }}
+          - Ollama:     +${{ steps.log.outputs.ol_added }}
+          - HuggingFace:+${{ steps.log.outputs.hf_added }}
+
+          All entries have last_verified: UNVERIFIED and need human review
+          before being merged into data/models.json"
+          git push origin "$BRANCH"
+          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+
+      - name: Open draft PR
+        if: steps.log.outputs.new_count != '0' && github.event.inputs.dry_run != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const newCount  = '${{ steps.log.outputs.new_count }}';
+            const orAdded   = '${{ steps.log.outputs.or_added }}';
+            const olAdded   = '${{ steps.log.outputs.ol_added }}';
+            const hfAdded   = '${{ steps.log.outputs.hf_added }}';
+            const date      = new Date().toISOString().slice(0,10);
+            const branch    = process.env.BRANCH;
+
+            const body = `## Nightly scrape — ${date}
+
+            **${newCount} new models discovered** across 3 sources.
+
+            | Source | New entries |
+            |--------|------------|
+            | OpenRouter | ${orAdded} |
+            | Ollama | ${olAdded} |
+            | HuggingFace | ${hfAdded} |
+
+            ### What this PR contains
+
+            \`data/auto-discovered.json\` — new model entries with \`last_verified: "UNVERIFIED"\` and null for all fields that need human input:
+            - \`vram_gb\` / \`vram_note\` / \`quants\`
+            - \`gpu_tiers\`
+            - \`arc_tested\`
+            - \`reliable_context_k\`
+            - \`tool_reliability\`
+            - Verified \`desc\` (auto-desc is a placeholder)
+
+            ### How to handle this PR
+
+            **Option A — move individual entries into \`models.json\`:**
+            1. Open \`data/auto-discovered.json\`
+            2. Find models worth adding
+            3. Fill in null fields from your own testing or a cited source
+            4. Move the completed entry into \`data/models.json\` under \`models[]\`
+            5. Remove \`_source\`, \`_needs_review\` meta fields
+            6. Set \`last_verified\` to current \`YYYY-MM\`
+            7. CI validates on push
+
+            **Option B — close and ignore:**
+            If none of the discovered models are worth adding yet, just close the PR. The scraper will re-discover them tomorrow if they're still trending, so nothing is lost.
+
+            > ⚠️ Do **not** merge \`auto-discovered.json\` entries directly into \`models.json\` while \`last_verified\` is still \`"UNVERIFIED"\`. The validate CI will reject them.
+
+            ---
+            *Auto-generated by bmt-scraper[bot] · [scrape-models.js](../blob/main/scripts/scrape-models.js)*`;
+
+            await github.rest.pulls.create({
+              owner:   context.repo.owner,
+              repo:    context.repo.repo,
+              title:   `[auto] Nightly scrape ${date} — ${newCount} new model candidates`,
+              head:    branch,
+              base:    'main',
+              body,
+              draft:   true,
+            });
+
+            console.log(`Draft PR opened for branch ${branch}`);
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### Scrape summary" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| New entries | ${{ steps.log.outputs.new_count }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| OpenRouter  | +${{ steps.log.outputs.or_added }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Ollama      | +${{ steps.log.outputs.ol_added }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| HuggingFace | +${{ steps.log.outputs.hf_added }} |" >> $GITHUB_STEP_SUMMARY

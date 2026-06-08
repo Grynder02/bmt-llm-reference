@@ -1,0 +1,107 @@
+name: Validate models.json
+
+on:
+  pull_request:
+    paths:
+      - 'data/models.json'
+      - 'schema/model.schema.json'
+  push:
+    branches: [main]
+    paths:
+      - 'data/models.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Schema validation
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli ajv-formats
+
+      - name: Validate models.json against schema
+        run: |
+          ajv validate \
+            -s schema/model.schema.json \
+            -d data/models.json \
+            --spec=draft7 \
+            --strict=false
+          echo "✅ models.json is valid"
+
+      - name: Check for duplicate model names
+        run: |
+          node -e "
+            const data = require('./data/models.json');
+            const names = data.models.map(m => m.name);
+            const dupes = names.filter((n, i) => names.indexOf(n) !== i);
+            if (dupes.length) {
+              console.error('❌ Duplicate model names found:', dupes);
+              process.exit(1);
+            }
+            console.log('✅ No duplicate model names');
+          "
+
+      - name: Reject UNVERIFIED entries in models.json
+        run: |
+          node -e "
+            const data = require('./data/models.json');
+            const bad = data.models.filter(m => m.last_verified === 'UNVERIFIED');
+            if (bad.length) {
+              console.error('❌ models.json contains UNVERIFIED entries — move these to auto-discovered.json or fill in last_verified:');
+              bad.forEach(m => console.error('  -', m.name));
+              process.exit(1);
+            }
+            console.log('✅ No UNVERIFIED entries in models.json');
+          "
+
+      - name: Warn on stale last_verified (> 6 months)
+        run: |
+          node -e "
+            const data = require('./data/models.json');
+            const now = new Date();
+            const stale = data.models.filter(m => {
+              const [y, mo] = m.last_verified.split('-').map(Number);
+              const verified = new Date(y, mo - 1);
+              const diffMonths = (now.getFullYear() - verified.getFullYear()) * 12 + (now.getMonth() - verified.getMonth());
+              return diffMonths > 6;
+            });
+            if (stale.length) {
+              console.warn('⚠️  Stale entries (last_verified > 6 months ago):');
+              stale.forEach(m => console.warn('  -', m.name, '(' + m.last_verified + ')'));
+            } else {
+              console.log('✅ All entries verified within 6 months');
+            }
+          "
+
+  build-check:
+    runs-on: ubuntu-latest
+    name: Widget build check
+    needs: validate
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build widget
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: widget-dist
+          path: dist/
+          retention-days: 7
