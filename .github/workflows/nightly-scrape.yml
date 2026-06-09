@@ -86,7 +86,7 @@ jobs:
 
           All entries have last_verified: UNVERIFIED and need human review
           before being merged into data/models.json"
-          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Grynder02/bmt-llm-reference.git "$BRANCH"
+          git push --force https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Grynder02/bmt-llm-reference.git "$BRANCH"
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
       - name: Open draft PR
