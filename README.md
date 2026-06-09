@@ -81,5 +81,5 @@ Every PR runs:
 - License: CC BY 4.0
 
 ---
-
+- Track deployments and repo activity → [bmt-pulse](https://github.com/Grynder02/bmt-pulse)
 *Built by [@Grynder02](https://github.com/Grynder02)*
