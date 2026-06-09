@@ -82,4 +82,4 @@ Every PR runs:
 
 ---
 
-*Built by [@Grynder02](https://github.com/Grynder02) / BeastModeTechnologies under Fortunara, Inc.*
+*Built by [@Grynder02](https://github.com/Grynder02)*
