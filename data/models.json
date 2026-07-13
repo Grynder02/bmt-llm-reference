@@ -1,13 +1,17 @@
 {
   "$schema": "../schema/model.schema.json",
-  "last_updated": "2026-06",
+  "last_updated": "2026-07",
   "models": [
     {
       "name": "Mythos Preview",
       "provider": "Anthropic",
       "type": "cloud",
-      "tags": ["reasoning", "coding", "agents"],
-      "desc": "Most capable Anthropic model — restricted release (Project Glasswing). Found thousands of zero-day vulns autonomously. Not publicly available.",
+      "tags": [
+        "reasoning",
+        "coding",
+        "agents"
+      ],
+      "desc": "Anthropic restricted-availability tier above Opus; shares its base model with Fable 5. Approved organizations only — not on public APIs.",
       "api_string": "restricted",
       "free_tier": false,
       "openrouter_id": null,
@@ -25,17 +29,22 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-05",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Opus 4.8",
       "provider": "Anthropic",
       "type": "cloud",
-      "tags": ["coding", "reasoning", "agents", "writing"],
+      "tags": [
+        "coding",
+        "reasoning",
+        "agents",
+        "writing"
+      ],
       "desc": "Latest Opus flagship. ~4x less likely to silently pass code flaws. Honesty and reliability focus. Ships with Dynamic Workflows — parallel subagent orchestration in Claude Code.",
       "api_string": "claude-opus-4-8",
       "free_tier": false,
-      "openrouter_id": "anthropic/claude-opus-4-8",
+      "openrouter_id": "anthropic/claude-opus-4.8",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -44,23 +53,29 @@
       "quants": null,
       "gpu_tiers": null,
       "arc_tested": null,
-      "context_k": 200,
+      "context_k": 1000,
       "reliable_context_k": 150,
       "tool_reliability": 5,
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-05",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Opus 4.7",
       "provider": "Anthropic",
       "type": "cloud",
-      "tags": ["coding", "reasoning", "vision", "agents", "writing"],
+      "tags": [
+        "coding",
+        "reasoning",
+        "vision",
+        "agents",
+        "writing"
+      ],
       "desc": "3x jump in image resolution (2576px / 3.75MP). xhigh effort level, self-verifies outputs. CursorBench 70%. Best production agentic workflows. Leads on vision + coding combo.",
       "api_string": "claude-opus-4-7",
       "free_tier": false,
-      "openrouter_id": "anthropic/claude-opus-4-7",
+      "openrouter_id": "anthropic/claude-opus-4.7",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -69,23 +84,28 @@
       "quants": null,
       "gpu_tiers": null,
       "arc_tested": null,
-      "context_k": 200,
+      "context_k": 1000,
       "reliable_context_k": 150,
       "tool_reliability": 5,
       "swe_bench": 87.6,
       "gpqa_diamond": null,
       "updated": "2026-04",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Opus 4.6",
       "provider": "Anthropic",
       "type": "cloud",
-      "tags": ["reasoning", "coding", "writing", "agents"],
+      "tags": [
+        "reasoning",
+        "coding",
+        "writing",
+        "agents"
+      ],
       "desc": "91.3% GPQA Diamond — highest published PhD-level reasoning score at launch. 80.8% SWE-bench. 1M token context (beta). Best long-form writing and nuanced analysis in the Claude 4 line.",
       "api_string": "claude-opus-4-6",
       "free_tier": false,
-      "openrouter_id": "anthropic/claude-opus-4-6",
+      "openrouter_id": "anthropic/claude-opus-4.6",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -100,17 +120,22 @@
       "swe_bench": 80.8,
       "gpqa_diamond": 91.3,
       "updated": "2026-02",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Sonnet 4.6",
       "provider": "Anthropic",
       "type": "cloud",
-      "tags": ["coding", "agents", "writing", "vision"],
+      "tags": [
+        "coding",
+        "agents",
+        "writing",
+        "vision"
+      ],
       "desc": "Production sweet spot. 79.6% SWE-bench. 94% computer-use accuracy. 200K ctx (1M beta). First Sonnet preferred over prior-gen Opus in coding evals by Claude Code users (59%). Best value in Claude lineup.",
       "api_string": "claude-sonnet-4-6",
       "free_tier": false,
-      "openrouter_id": "anthropic/claude-sonnet-4-6",
+      "openrouter_id": "anthropic/claude-sonnet-4.6",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -119,23 +144,26 @@
       "quants": null,
       "gpu_tiers": null,
       "arc_tested": null,
-      "context_k": 200,
+      "context_k": 1000,
       "reliable_context_k": 150,
       "tool_reliability": 5,
       "swe_bench": 79.6,
       "gpqa_diamond": null,
       "updated": "2026-02",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Haiku 4.5",
       "provider": "Anthropic",
       "type": "cloud",
-      "tags": ["speed", "coding"],
+      "tags": [
+        "speed",
+        "coding"
+      ],
       "desc": "Fastest and cheapest Claude tier. 97 tok/s. 200K context. Matches Sonnet 4 on coding and computer use. Built for classification, extraction, routing, and high-volume pipelines.",
       "api_string": "claude-haiku-4-5-20251001",
       "free_tier": false,
-      "openrouter_id": "anthropic/claude-haiku-4-5",
+      "openrouter_id": "anthropic/claude-haiku-4.5",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -150,17 +178,24 @@
       "swe_bench": 73.3,
       "gpqa_diamond": null,
       "updated": "2025-10",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "GPT-5.5",
       "provider": "OpenAI",
       "type": "cloud",
-      "tags": ["reasoning", "coding", "vision", "agents", "writing", "multimodal"],
+      "tags": [
+        "reasoning",
+        "coding",
+        "vision",
+        "agents",
+        "writing",
+        "multimodal"
+      ],
       "desc": "Current OpenAI flagship. Leads overall Intelligence Index. Best agentic and multimodal tasks. Plans free to $200/mo. Preferred for full-stack real-world workflows.",
       "api_string": "gpt-5-5",
       "free_tier": false,
-      "openrouter_id": "openai/gpt-5-5",
+      "openrouter_id": null,
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -175,17 +210,22 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-04",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "GPT-5.4",
       "provider": "OpenAI",
       "type": "cloud",
-      "tags": ["reasoning", "coding", "vision", "agents"],
+      "tags": [
+        "reasoning",
+        "coding",
+        "vision",
+        "agents"
+      ],
       "desc": "Unified general and coding model line. 74.9% SWE-bench, 92.8% GPQA Diamond. First OpenAI model with native computer use. Solid all-rounder when 5.5 is overkill.",
       "api_string": "gpt-5-4",
       "free_tier": false,
-      "openrouter_id": "openai/gpt-5-4",
+      "openrouter_id": null,
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -200,13 +240,18 @@
       "swe_bench": 74.9,
       "gpqa_diamond": 92.8,
       "updated": "2026-03",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "GPT-4o",
       "provider": "OpenAI",
       "type": "cloud",
-      "tags": ["speed", "vision", "multimodal", "coding"],
+      "tags": [
+        "speed",
+        "vision",
+        "multimodal",
+        "coding"
+      ],
       "desc": "Fast multimodal — text, image, audio input. Good for real-time apps and cost-sensitive workloads vs GPT-5.x. Still widely supported across integrations and tools.",
       "api_string": "gpt-4o",
       "free_tier": true,
@@ -231,7 +276,11 @@
       "name": "o3",
       "provider": "OpenAI",
       "type": "cloud",
-      "tags": ["reasoning", "math", "coding"],
+      "tags": [
+        "reasoning",
+        "math",
+        "coding"
+      ],
       "desc": "Extended-thinking reasoning specialist. Tops math olympiad and hard logic chains. Slow and expensive but near-unmatched on multi-step reasoning. Use when accuracy > speed.",
       "api_string": "o3",
       "free_tier": false,
@@ -256,7 +305,12 @@
       "name": "o4-mini",
       "provider": "OpenAI",
       "type": "cloud",
-      "tags": ["reasoning", "math", "coding", "speed"],
+      "tags": [
+        "reasoning",
+        "math",
+        "coding",
+        "speed"
+      ],
       "desc": "Affordable reasoning with chain-of-thought. Fast math and coding at fraction of o3 cost. Good for automated pipelines needing structured reasoning without flagship pricing.",
       "api_string": "o4-mini",
       "free_tier": false,
@@ -281,11 +335,16 @@
       "name": "Gemini 3.1 Pro",
       "provider": "Google",
       "type": "cloud",
-      "tags": ["reasoning", "vision", "multimodal", "math"],
+      "tags": [
+        "reasoning",
+        "vision",
+        "multimodal",
+        "math"
+      ],
       "desc": "Highest GPQA Diamond at 94.3%. $2/$12 per MTok. Leads ARC-AGI-2 abstract reasoning. Best pick for research, STEM, and scientific workflows.",
       "api_string": "gemini-3-1-pro",
       "free_tier": false,
-      "openrouter_id": "google/gemini-3-1-pro",
+      "openrouter_id": "google/gemini-3.1-pro-preview",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -300,13 +359,19 @@
       "swe_bench": null,
       "gpqa_diamond": 94.3,
       "updated": "2026-04",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Gemini 2.5 Pro",
       "provider": "Google",
       "type": "cloud",
-      "tags": ["reasoning", "vision", "multimodal", "coding", "agents"],
+      "tags": [
+        "reasoning",
+        "vision",
+        "multimodal",
+        "coding",
+        "agents"
+      ],
       "desc": "1M token context natively in Google Workspace. Strong multimodal. Good enterprise option if deep in Google ecosystem. Previously led ARC-AGI-2.",
       "api_string": "gemini-2.5-pro",
       "free_tier": false,
@@ -331,11 +396,15 @@
       "name": "Gemini 3 Flash",
       "provider": "Google",
       "type": "cloud",
-      "tags": ["speed", "coding", "multimodal"],
+      "tags": [
+        "speed",
+        "coding",
+        "multimodal"
+      ],
       "desc": "Ultra-cheap (~$0.25/MTok). 1M token context. 78% SWE-bench. Best cost-performance in cloud for everyday coding and routing tasks. Free tier available.",
       "api_string": "gemini-3-flash",
       "free_tier": true,
-      "openrouter_id": "google/gemini-3-flash",
+      "openrouter_id": "google/gemini-3-flash-preview",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -350,17 +419,21 @@
       "swe_bench": 78.0,
       "gpqa_diamond": null,
       "updated": "2026-03",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Grok 4",
       "provider": "xAI",
       "type": "cloud",
-      "tags": ["coding", "reasoning", "math"],
+      "tags": [
+        "coding",
+        "reasoning",
+        "math"
+      ],
       "desc": "Leads raw SWE-bench coding scores. Built-in X/Twitter search and real-time web data in API. $2/$15 per MTok. Best for live grounded coding tasks with real-time context.",
       "api_string": "grok-4",
       "free_tier": false,
-      "openrouter_id": "x-ai/grok-4",
+      "openrouter_id": null,
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -375,17 +448,22 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-04",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Grok 4.3",
       "provider": "xAI",
       "type": "cloud",
-      "tags": ["reasoning", "vision", "multimodal", "math"],
+      "tags": [
+        "reasoning",
+        "vision",
+        "multimodal",
+        "math"
+      ],
       "desc": "Adds document generation and video input. HLE leader at 50.7%. Premium features locked behind SuperGrok Heavy ($300/mo). Best for frontier reasoning benchmarks.",
       "api_string": "grok-4-3",
       "free_tier": false,
-      "openrouter_id": "x-ai/grok-4-3",
+      "openrouter_id": "x-ai/grok-4.3",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -394,19 +472,23 @@
       "quants": null,
       "gpu_tiers": null,
       "arc_tested": null,
-      "context_k": 128,
+      "context_k": 1000,
       "reliable_context_k": 64,
       "tool_reliability": 4,
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-05",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "DeepSeek V3.2",
       "provider": "DeepSeek",
       "type": "cloud",
-      "tags": ["coding", "reasoning", "speed"],
+      "tags": [
+        "coding",
+        "reasoning",
+        "speed"
+      ],
       "desc": "~90% GPT-5.4 quality at $0.28/MTok — 1/50th the cost. Best price-to-performance in cloud. MoE architecture. Strong coding and general tasks. Free tier on OpenRouter.",
       "api_string": "deepseek/deepseek-chat",
       "free_tier": true,
@@ -419,7 +501,7 @@
       "quants": null,
       "gpu_tiers": null,
       "arc_tested": null,
-      "context_k": 64,
+      "context_k": 128,
       "reliable_context_k": 32,
       "tool_reliability": 4,
       "swe_bench": null,
@@ -431,7 +513,11 @@
       "name": "DeepSeek R1 (cloud)",
       "provider": "DeepSeek",
       "type": "cloud",
-      "tags": ["reasoning", "math", "coding"],
+      "tags": [
+        "reasoning",
+        "math",
+        "coding"
+      ],
       "desc": "Open-weight reasoning model via API. Chain-of-thought specialist. 52% MATH vs 28% Mistral Small. Also self-hostable. Free tier available on OpenRouter.",
       "api_string": "deepseek/deepseek-r1",
       "free_tier": true,
@@ -444,7 +530,7 @@
       "quants": null,
       "gpu_tiers": null,
       "arc_tested": null,
-      "context_k": 64,
+      "context_k": 164,
       "reliable_context_k": 32,
       "tool_reliability": 3,
       "swe_bench": null,
@@ -456,11 +542,16 @@
       "name": "Mistral Large",
       "provider": "Mistral",
       "type": "cloud",
-      "tags": ["reasoning", "writing", "coding", "agents"],
+      "tags": [
+        "reasoning",
+        "writing",
+        "coding",
+        "agents"
+      ],
       "desc": "Flagship Mistral. Strong multilingual (EU focus), long-context, structured output. Native function calling. Via API or OpenRouter.",
       "api_string": "mistral/mistral-large",
       "free_tier": false,
-      "openrouter_id": "mistral/mistral-large",
+      "openrouter_id": "mistralai/mistral-large",
       "vram_gb": null,
       "vram_note": null,
       "moe": false,
@@ -475,13 +566,18 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-02",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Llama 4 Scout (109B MoE)",
       "provider": "Meta",
       "type": "local",
-      "tags": ["reasoning", "vision", "multimodal", "coding"],
+      "tags": [
+        "reasoning",
+        "vision",
+        "multimodal",
+        "coding"
+      ],
       "desc": "17B active params, 10M token context — longest in the world. Multimodal. Runs on single H100 Int4. MIT licensed. Best for ultra-long context RAG pipelines.",
       "api_string": "ollama pull llama4:scout",
       "free_tier": true,
@@ -492,10 +588,20 @@
       "active_params_b": 17,
       "total_params_b": 109,
       "quants": [
-        { "type": "Q4_K_M", "vram_gb": 55 },
-        { "type": "Q2_K", "vram_gb": 32 }
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 55
+        },
+        {
+          "type": "Q2_K",
+          "vram_gb": 32
+        }
       ],
-      "gpu_tiers": ["H100 (80GB)", "A100 (80GB)", "2x RTX 3090 (48GB)"],
+      "gpu_tiers": [
+        "H100 (80GB)",
+        "A100 (80GB)",
+        "2x RTX 3090 (48GB)"
+      ],
       "arc_tested": false,
       "context_k": 10000,
       "reliable_context_k": 1000,
@@ -509,7 +615,10 @@
       "name": "Llama 4 Maverick (400B MoE)",
       "provider": "Meta",
       "type": "local",
-      "tags": ["reasoning", "coding"],
+      "tags": [
+        "reasoning",
+        "coding"
+      ],
       "desc": "128 experts, 17B active. 1M token context. Higher overall perf than Scout. Needs multi-GPU. MIT licensed. Top-tier local reasoning when you have the iron.",
       "api_string": "ollama pull llama4:maverick",
       "free_tier": true,
@@ -520,10 +629,20 @@
       "active_params_b": 17,
       "total_params_b": 400,
       "quants": [
-        { "type": "Q4_K_M", "vram_gb": 96 },
-        { "type": "Q2_K", "vram_gb": 56 }
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 96
+        },
+        {
+          "type": "Q2_K",
+          "vram_gb": 56
+        }
       ],
-      "gpu_tiers": ["4x RTX 3090", "2x A100 (80GB)", "H100 cluster"],
+      "gpu_tiers": [
+        "4x RTX 3090",
+        "2x A100 (80GB)",
+        "H100 cluster"
+      ],
       "arc_tested": false,
       "context_k": 1000,
       "reliable_context_k": 128,
@@ -537,7 +656,11 @@
       "name": "Llama 3.3 70B",
       "provider": "Meta",
       "type": "local",
-      "tags": ["reasoning", "coding", "writing"],
+      "tags": [
+        "reasoning",
+        "coding",
+        "writing"
+      ],
       "desc": "Best overall dense local model. Comparable to GPT-4 Turbo on many tasks. Needs 48GB+ VRAM for full GPU load. Strong general reasoning and writing.",
       "api_string": "ollama pull llama3.3:70b",
       "free_tier": true,
@@ -548,12 +671,28 @@
       "active_params_b": 70,
       "total_params_b": 70,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 26 },
-        { "type": "Q4_K_M", "vram_gb": 43 },
-        { "type": "Q5_K_M", "vram_gb": 50 },
-        { "type": "Q8_0", "vram_gb": 74 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 26
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 43
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 50
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 74
+        }
       ],
-      "gpu_tiers": ["RTX 6000 Ada (48GB)", "A6000 (48GB)", "2x RTX 3090 (48GB)"],
+      "gpu_tiers": [
+        "RTX 6000 Ada (48GB)",
+        "A6000 (48GB)",
+        "2x RTX 3090 (48GB)"
+      ],
       "arc_tested": false,
       "context_k": 128,
       "reliable_context_k": 32,
@@ -564,26 +703,48 @@
       "last_verified": "2026-06"
     },
     {
-      "name": "Llama 3.3 8B",
+      "name": "Llama 3.1 8B",
       "provider": "Meta",
       "type": "local",
-      "tags": ["speed", "writing", "coding"],
-      "desc": "Best general-purpose 8B. Solid all-rounder for chat, summarization, light coding. Comfortably fits 8GB VRAM. Most tutorials target this. Good fallback model.",
-      "api_string": "ollama pull llama3.3",
+      "tags": [
+        "speed",
+        "writing",
+        "coding"
+      ],
+      "desc": "Best general-purpose 8B (Llama 3.3 shipped only as 70B — this is the current Meta 8B). Solid all-rounder for chat, summarization, light coding. Comfortably fits 8GB VRAM. Most tutorials target this. Good fallback model.",
+      "api_string": "ollama pull llama3.1:8b",
       "free_tier": true,
-      "openrouter_id": "meta-llama/llama-3.3-8b-instruct",
+      "openrouter_id": "meta-llama/llama-3.1-8b-instruct",
       "vram_gb": 6,
       "vram_note": "Q4_K_M",
       "moe": false,
       "active_params_b": 8,
       "total_params_b": 8,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 3 },
-        { "type": "Q4_K_M", "vram_gb": 6 },
-        { "type": "Q5_K_M", "vram_gb": 7 },
-        { "type": "Q8_0", "vram_gb": 9 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 3
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 6
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 7
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 9
+        }
       ],
-      "gpu_tiers": ["GTX 1660 Ti (6GB)", "RTX 3060 (8GB)", "RX 6600 (8GB)", "Arc A770 (16GB)", "GTX 1080 Ti (11GB)"],
+      "gpu_tiers": [
+        "GTX 1660 Ti (6GB)",
+        "RTX 3060 (8GB)",
+        "RX 6600 (8GB)",
+        "Arc A770 (16GB)",
+        "GTX 1080 Ti (11GB)"
+      ],
       "arc_tested": true,
       "context_k": 128,
       "reliable_context_k": 32,
@@ -591,73 +752,117 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2025-12",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Qwen 3.6 27B",
       "provider": "Qwen (Alibaba)",
       "type": "local",
-      "tags": ["coding", "reasoning", "agents"],
+      "tags": [
+        "coding",
+        "reasoning",
+        "agents"
+      ],
       "desc": "Best overall dense model on consumer hardware June 2026. 77.2% SWE-bench. Top pick for coding and general tasks on a 24GB GPU. Apache 2 licensed.",
       "api_string": "ollama pull qwen3.6:27b",
       "free_tier": true,
-      "openrouter_id": "qwen/qwen-3-6-27b",
+      "openrouter_id": "qwen/qwen3.6-27b",
       "vram_gb": 22,
       "vram_note": "Q4_K_M",
       "moe": false,
       "active_params_b": 27,
       "total_params_b": 27,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 12 },
-        { "type": "Q4_K_M", "vram_gb": 22 },
-        { "type": "Q5_K_M", "vram_gb": 26 },
-        { "type": "Q8_0", "vram_gb": 38 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 12
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 22
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 26
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 38
+        }
       ],
-      "gpu_tiers": ["RTX 3090 (24GB)", "RTX 4090 (24GB)", "RX 7900 XTX (24GB)", "A5000 (24GB)"],
+      "gpu_tiers": [
+        "RTX 3090 (24GB)",
+        "RTX 4090 (24GB)",
+        "RX 7900 XTX (24GB)",
+        "A5000 (24GB)"
+      ],
       "arc_tested": false,
-      "context_k": 32,
+      "context_k": 256,
       "reliable_context_k": 16,
       "tool_reliability": 5,
       "swe_bench": 77.2,
       "gpqa_diamond": null,
       "updated": "2026-05",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
-      "name": "Qwen 3 30B",
+      "name": "Qwen 3 30B A3B (MoE)",
       "provider": "Qwen (Alibaba)",
       "type": "local",
-      "tags": ["coding", "reasoning", "writing"],
+      "tags": [
+        "coding",
+        "reasoning",
+        "writing"
+      ],
       "desc": "Balanced all-rounder. Strong coding and multilingual. Good if you have 24GB and want headroom over the 27B. Solid for general agent tasks.",
       "api_string": "ollama pull qwen3:30b",
       "free_tier": true,
-      "openrouter_id": "qwen/qwen-3-30b",
+      "openrouter_id": "qwen/qwen3-30b-a3b",
       "vram_gb": 20,
       "vram_note": "Q4_K_M",
-      "moe": false,
-      "active_params_b": 30,
+      "moe": true,
+      "active_params_b": 3,
       "total_params_b": 30,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 11 },
-        { "type": "Q4_K_M", "vram_gb": 20 },
-        { "type": "Q5_K_M", "vram_gb": 24 },
-        { "type": "Q8_0", "vram_gb": 33 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 11
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 20
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 24
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 33
+        }
       ],
-      "gpu_tiers": ["RTX 3090 (24GB)", "RTX 4090 (24GB)", "A5000 (24GB)"],
+      "gpu_tiers": [
+        "RTX 3090 (24GB)",
+        "RTX 4090 (24GB)",
+        "A5000 (24GB)"
+      ],
       "arc_tested": false,
-      "context_k": 32,
+      "context_k": 128,
       "reliable_context_k": 16,
       "tool_reliability": 5,
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-04",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Qwen 2.5 Coder 32B",
       "provider": "Qwen (Alibaba)",
       "type": "local",
-      "tags": ["coding", "agents"],
+      "tags": [
+        "coding",
+        "agents"
+      ],
       "desc": "92.7% HumanEval on a $700 GPU. Dedicated coding model. Best structured output and function calling locally. Ideal for code-gen pipelines where accuracy matters.",
       "api_string": "ollama pull qwen2.5-coder:32b",
       "free_tier": true,
@@ -668,12 +873,28 @@
       "active_params_b": 32,
       "total_params_b": 32,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 12 },
-        { "type": "Q4_K_M", "vram_gb": 22 },
-        { "type": "Q5_K_M", "vram_gb": 26 },
-        { "type": "Q8_0", "vram_gb": 38 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 12
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 22
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 26
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 38
+        }
       ],
-      "gpu_tiers": ["RTX 3090 (24GB)", "RTX 4090 (24GB)", "A5000 (24GB)"],
+      "gpu_tiers": [
+        "RTX 3090 (24GB)",
+        "RTX 4090 (24GB)",
+        "A5000 (24GB)"
+      ],
       "arc_tested": false,
       "context_k": 128,
       "reliable_context_k": 32,
@@ -684,40 +905,65 @@
       "last_verified": "2026-06"
     },
     {
-      "name": "Qwen 3 7B",
+      "name": "Qwen 3 8B",
       "provider": "Qwen (Alibaba)",
       "type": "local",
-      "tags": ["coding", "speed", "agents"],
-      "desc": "Best 7B for coding at 76% HumanEval. Most stable tool calling under 8B. 29+ native languages. Top multilingual small model. Fits 8GB VRAM comfortably.",
-      "api_string": "ollama pull qwen3:7b",
+      "tags": [
+        "coding",
+        "speed",
+        "agents"
+      ],
+      "desc": "Strong small coder with stable tool calling; best sub-14B Qwen3. Multilingual.",
+      "api_string": "ollama pull qwen3:8b",
       "free_tier": true,
-      "openrouter_id": "qwen/qwen-3-7b",
+      "openrouter_id": "qwen/qwen3-8b",
       "vram_gb": 6,
       "vram_note": "Q4_K_M",
       "moe": false,
-      "active_params_b": 7,
-      "total_params_b": 7,
+      "active_params_b": 8,
+      "total_params_b": 8,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 3 },
-        { "type": "Q4_K_M", "vram_gb": 6 },
-        { "type": "Q5_K_M", "vram_gb": 7 },
-        { "type": "Q8_0", "vram_gb": 9 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 3
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 6
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 7
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 9
+        }
       ],
-      "gpu_tiers": ["GTX 1660 Ti (6GB)", "RTX 3060 (8GB)", "Arc A770 (16GB)", "RX 6600 (8GB)"],
+      "gpu_tiers": [
+        "GTX 1660 Ti (6GB)",
+        "RTX 3060 (8GB)",
+        "Arc A770 (16GB)",
+        "RX 6600 (8GB)"
+      ],
       "arc_tested": true,
-      "context_k": 32,
+      "context_k": 128,
       "reliable_context_k": 16,
       "tool_reliability": 5,
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-04",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Qwen 2.5 72B",
       "provider": "Qwen (Alibaba)",
       "type": "local",
-      "tags": ["reasoning", "coding", "writing"],
+      "tags": [
+        "reasoning",
+        "coding",
+        "writing"
+      ],
       "desc": "Excellent multilingual and general reasoning at 72B. Needs 48GB+ for full GPU. Good companion to nomic-embed for large RAG systems.",
       "api_string": "ollama pull qwen2.5:72b",
       "free_tier": true,
@@ -728,12 +974,28 @@
       "active_params_b": 72,
       "total_params_b": 72,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 26 },
-        { "type": "Q4_K_M", "vram_gb": 43 },
-        { "type": "Q5_K_M", "vram_gb": 51 },
-        { "type": "Q8_0", "vram_gb": 76 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 26
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 43
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 51
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 76
+        }
       ],
-      "gpu_tiers": ["RTX 6000 Ada (48GB)", "A6000 (48GB)", "2x RTX 3090 (48GB)"],
+      "gpu_tiers": [
+        "RTX 6000 Ada (48GB)",
+        "A6000 (48GB)",
+        "2x RTX 3090 (48GB)"
+      ],
       "arc_tested": false,
       "context_k": 128,
       "reliable_context_k": 32,
@@ -747,51 +1009,83 @@
       "name": "Kimi K2.6 (MoE)",
       "provider": "Moonshot",
       "type": "local",
-      "tags": ["coding", "reasoning"],
+      "tags": [
+        "coding",
+        "reasoning"
+      ],
       "desc": "MIT licensed. 32B active / ~1T total MoE. SWE-Bench Pro 58.6 — ties GPT-5.5 on coding. Top-tier local coding frontier model as of June 2026.",
-      "api_string": "ollama pull kimi-k2.6",
+      "api_string": "ollama pull kimi-k2.6:cloud",
       "free_tier": true,
-      "openrouter_id": "moonshotai/kimi-k2",
-      "vram_gb": 24,
-      "vram_note": "Q4_K_M active params only",
+      "openrouter_id": "moonshotai/kimi-k2.6",
+      "vram_gb": 600,
+      "vram_note": "~1T total params — ALL experts must be resident; Q4 needs ~600 GB. Not runnable on consumer GPUs; use cloud or ollama kimi-k2.6:cloud.",
       "moe": true,
       "active_params_b": 32,
       "total_params_b": 1000,
       "quants": [
-        { "type": "Q4_K_M", "vram_gb": 24 },
-        { "type": "Q2_K", "vram_gb": 14 }
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 24
+        },
+        {
+          "type": "Q2_K",
+          "vram_gb": 14
+        }
       ],
-      "gpu_tiers": ["RTX 3090 (24GB)", "RTX 4090 (24GB)", "A5000 (24GB)"],
+      "gpu_tiers": [
+        "RTX 3090 (24GB)",
+        "RTX 4090 (24GB)",
+        "A5000 (24GB)"
+      ],
       "arc_tested": false,
-      "context_k": 128,
+      "context_k": 256,
       "reliable_context_k": 32,
       "tool_reliability": 4,
       "swe_bench": 58.6,
       "gpqa_diamond": null,
       "updated": "2026-05",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "gpt-oss 20B",
       "provider": "OpenAI (OSS)",
       "type": "local",
-      "tags": ["coding", "reasoning"],
+      "tags": [
+        "coding",
+        "reasoning"
+      ],
       "desc": "OpenAI open-weight 20B. Adjustable reasoning. Best small model at the 16GB VRAM tier in mid-2026. Strong coding and instruction following.",
       "api_string": "ollama pull gpt-oss:20b",
       "free_tier": true,
-      "openrouter_id": null,
+      "openrouter_id": "openai/gpt-oss-20b",
       "vram_gb": 14,
       "vram_note": "Q4_K_M",
-      "moe": false,
-      "active_params_b": 20,
-      "total_params_b": 20,
+      "moe": true,
+      "active_params_b": 3.6,
+      "total_params_b": 21,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 8 },
-        { "type": "Q4_K_M", "vram_gb": 14 },
-        { "type": "Q5_K_M", "vram_gb": 16 },
-        { "type": "Q8_0", "vram_gb": 22 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 8
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 14
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 16
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 22
+        }
       ],
-      "gpu_tiers": ["RTX 3080 Ti (12GB)", "RTX 4070 Ti (16GB)", "Arc A770 (16GB)"],
+      "gpu_tiers": [
+        "RTX 3080 Ti (12GB)",
+        "RTX 4070 Ti (16GB)",
+        "Arc A770 (16GB)"
+      ],
       "arc_tested": false,
       "context_k": 128,
       "reliable_context_k": 32,
@@ -799,29 +1093,49 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-05",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
-      "name": "DeepSeek R1 32B (local)",
+      "name": "DeepSeek R1 Distill Qwen 32B",
       "provider": "DeepSeek",
       "type": "local",
-      "tags": ["reasoning", "math", "coding"],
-      "desc": "Best local reasoning model at 32B. Chain-of-thought math and logic. 24GB VRAM handles it at Q4. Major upgrade over 7B for hard problems. Privacy-first reasoning.",
+      "tags": [
+        "reasoning",
+        "math",
+        "coding"
+      ],
+      "desc": "R1 distilled into Qwen 32B (not the full R1). Best local reasoning at 32B. Chain-of-thought math and logic. 24GB VRAM handles it at Q4. Major upgrade over 7B for hard problems. Privacy-first reasoning.",
       "api_string": "ollama pull deepseek-r1:32b",
       "free_tier": true,
-      "openrouter_id": "deepseek/deepseek-r1",
+      "openrouter_id": null,
       "vram_gb": 22,
       "vram_note": "Q4_K_M",
       "moe": false,
       "active_params_b": 32,
       "total_params_b": 32,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 12 },
-        { "type": "Q4_K_M", "vram_gb": 22 },
-        { "type": "Q5_K_M", "vram_gb": 26 },
-        { "type": "Q8_0", "vram_gb": 38 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 12
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 22
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 26
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 38
+        }
       ],
-      "gpu_tiers": ["RTX 3090 (24GB)", "RTX 4090 (24GB)", "A5000 (24GB)"],
+      "gpu_tiers": [
+        "RTX 3090 (24GB)",
+        "RTX 4090 (24GB)",
+        "A5000 (24GB)"
+      ],
       "arc_tested": false,
       "context_k": 64,
       "reliable_context_k": 16,
@@ -829,29 +1143,49 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2025-11",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
-      "name": "DeepSeek R1 7B (local)",
+      "name": "DeepSeek R1 Distill Qwen 7B",
       "provider": "DeepSeek",
       "type": "local",
-      "tags": ["reasoning", "math"],
-      "desc": "Entry-level reasoning with chain-of-thought. 52% MATH benchmark. Fits 8GB VRAM at Q4. Good for privacy-first math and reasoning on modest hardware.",
+      "tags": [
+        "reasoning",
+        "math"
+      ],
+      "desc": "R1 distilled into Qwen 7B (not the full R1). Entry-level reasoning with chain-of-thought. 52% MATH benchmark. Fits 8GB VRAM at Q4. Good for privacy-first math and reasoning on modest hardware.",
       "api_string": "ollama pull deepseek-r1:7b",
       "free_tier": true,
-      "openrouter_id": "deepseek/deepseek-r1",
+      "openrouter_id": null,
       "vram_gb": 6,
       "vram_note": "Q4_K_M",
       "moe": false,
       "active_params_b": 7,
       "total_params_b": 7,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 3 },
-        { "type": "Q4_K_M", "vram_gb": 6 },
-        { "type": "Q5_K_M", "vram_gb": 7 },
-        { "type": "Q8_0", "vram_gb": 9 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 3
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 6
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 7
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 9
+        }
       ],
-      "gpu_tiers": ["GTX 1660 Ti (6GB)", "RTX 3060 (8GB)", "Arc A770 (16GB)", "RX 6600 (8GB)"],
+      "gpu_tiers": [
+        "GTX 1660 Ti (6GB)",
+        "RTX 3060 (8GB)",
+        "Arc A770 (16GB)",
+        "RX 6600 (8GB)"
+      ],
       "arc_tested": true,
       "context_k": 64,
       "reliable_context_k": 16,
@@ -859,29 +1193,51 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2025-11",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
-      "name": "Gemma 4 26B",
+      "name": "Gemma 4 26B A4B (MoE)",
       "provider": "Google",
       "type": "local",
-      "tags": ["agents", "vision", "coding"],
+      "tags": [
+        "agents",
+        "vision",
+        "coding"
+      ],
       "desc": "Native function calling trained into weights — best agent and tool-calling local model. Has vision. 85 tok/s on consumer hardware. Best for orchestrated agentic pipelines.",
-      "api_string": "ollama pull gemma4:27b",
+      "api_string": "ollama pull gemma4:26b",
       "free_tier": true,
-      "openrouter_id": "google/gemma-4-27b-it",
+      "openrouter_id": "google/gemma-4-26b-a4b-it",
       "vram_gb": 18,
       "vram_note": "Q4_K_M",
-      "moe": false,
-      "active_params_b": 26,
+      "moe": true,
+      "active_params_b": 4,
       "total_params_b": 26,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 10 },
-        { "type": "Q4_K_M", "vram_gb": 18 },
-        { "type": "Q5_K_M", "vram_gb": 22 },
-        { "type": "Q8_0", "vram_gb": 30 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 10
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 18
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 22
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 30
+        }
       ],
-      "gpu_tiers": ["RTX 3080 (10GB, Q2 only)", "RTX 3080 Ti (12GB, Q2)", "RTX 3090 (24GB)", "RTX 4070 Ti (16GB)", "Arc A770 (16GB, Q4)"],
+      "gpu_tiers": [
+        "RTX 3080 (10GB, Q2 only)",
+        "RTX 3080 Ti (12GB, Q2)",
+        "RTX 3090 (24GB)",
+        "RTX 4070 Ti (16GB)",
+        "Arc A770 (16GB, Q4)"
+      ],
       "arc_tested": true,
       "context_k": 256,
       "reliable_context_k": 32,
@@ -889,28 +1245,46 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-04",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Gemma 4 E4B",
       "provider": "Google",
       "type": "local",
-      "tags": ["vision", "speed", "agents"],
+      "tags": [
+        "vision",
+        "speed",
+        "agents"
+      ],
       "desc": "Tiny edge model. Vision and tool calling — unique in the 4B class. June 2026 update. Good for structured output and simple visual tasks on tight hardware.",
       "api_string": "ollama pull gemma4:e4b",
       "free_tier": true,
-      "openrouter_id": "google/gemma-4-e4b-it",
+      "openrouter_id": null,
       "vram_gb": 3,
       "vram_note": "Q4_K_M",
       "moe": false,
       "active_params_b": 4,
       "total_params_b": 4,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 2 },
-        { "type": "Q4_K_M", "vram_gb": 3 },
-        { "type": "Q8_0", "vram_gb": 5 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 2
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 3
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 5
+        }
       ],
-      "gpu_tiers": ["GTX 1060 (6GB)", "GTX 1660 Ti (6GB)", "Arc A380 (6GB)", "Any modern iGPU (shared)"],
+      "gpu_tiers": [
+        "GTX 1060 (6GB)",
+        "GTX 1660 Ti (6GB)",
+        "Arc A380 (6GB)",
+        "Any modern iGPU (shared)"
+      ],
       "arc_tested": true,
       "context_k": 128,
       "reliable_context_k": 32,
@@ -918,29 +1292,50 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-06",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Mistral Small 3.2 24B",
       "provider": "Mistral",
       "type": "local",
-      "tags": ["agents", "coding", "speed"],
+      "tags": [
+        "agents",
+        "coding",
+        "speed"
+      ],
       "desc": "Best function calling and JSON output in its class. Native function calling. Strong EU language support. Best pick for structured local agent output.",
       "api_string": "ollama pull mistral-small",
       "free_tier": true,
-      "openrouter_id": "mistralai/mistral-small",
+      "openrouter_id": "mistralai/mistral-small-3.2-24b-instruct",
       "vram_gb": 16,
       "vram_note": "Q4_K_M",
       "moe": false,
       "active_params_b": 24,
       "total_params_b": 24,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 9 },
-        { "type": "Q4_K_M", "vram_gb": 16 },
-        { "type": "Q5_K_M", "vram_gb": 19 },
-        { "type": "Q8_0", "vram_gb": 27 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 9
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 16
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 19
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 27
+        }
       ],
-      "gpu_tiers": ["RTX 3080 Ti (12GB, Q2)", "RTX 4070 Ti (16GB)", "Arc A770 (16GB)", "RTX 3090 (24GB)"],
+      "gpu_tiers": [
+        "RTX 3080 Ti (12GB, Q2)",
+        "RTX 4070 Ti (16GB)",
+        "Arc A770 (16GB)",
+        "RTX 3090 (24GB)"
+      ],
       "arc_tested": false,
       "context_k": 128,
       "reliable_context_k": 32,
@@ -948,13 +1343,16 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-03",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "Mistral Nemo 12B",
       "provider": "Mistral",
       "type": "local",
-      "tags": ["speed", "writing"],
+      "tags": [
+        "speed",
+        "writing"
+      ],
       "desc": "Right call for 12GB VRAM. Better quality than 8B class. Good multilingual. Solid mid-tier for chat and light agents. 18.5 tok/s on 16GB VRAM.",
       "api_string": "ollama pull mistral-nemo",
       "free_tier": true,
@@ -965,12 +1363,29 @@
       "active_params_b": 12,
       "total_params_b": 12,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 5 },
-        { "type": "Q4_K_M", "vram_gb": 9 },
-        { "type": "Q5_K_M", "vram_gb": 10 },
-        { "type": "Q8_0", "vram_gb": 14 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 5
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 9
+        },
+        {
+          "type": "Q5_K_M",
+          "vram_gb": 10
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 14
+        }
       ],
-      "gpu_tiers": ["GTX 1080 Ti (11GB)", "RTX 3060 (12GB)", "Arc A770 (16GB)", "RTX 3080 (10GB, Q4)"],
+      "gpu_tiers": [
+        "GTX 1080 Ti (11GB)",
+        "RTX 3060 (12GB)",
+        "Arc A770 (16GB)",
+        "RTX 3080 (10GB, Q4)"
+      ],
       "arc_tested": false,
       "context_k": 128,
       "reliable_context_k": 32,
@@ -984,22 +1399,40 @@
       "name": "Phi-4 Mini (3.8B)",
       "provider": "Microsoft",
       "type": "local",
-      "tags": ["speed", "coding", "reasoning"],
+      "tags": [
+        "speed",
+        "coding",
+        "reasoning"
+      ],
       "desc": "Leads small model benchmarks. 28 tok/s on 8GB systems. Surprisingly capable for size. Best sub-4B for real tasks. Good for edge deployments and resource-constrained setups.",
       "api_string": "ollama pull phi4-mini",
       "free_tier": true,
-      "openrouter_id": "microsoft/phi-4-mini",
+      "openrouter_id": null,
       "vram_gb": 3,
       "vram_note": "Q4_K_M",
       "moe": false,
       "active_params_b": 3.8,
       "total_params_b": 3.8,
       "quants": [
-        { "type": "Q2_K", "vram_gb": 2 },
-        { "type": "Q4_K_M", "vram_gb": 3 },
-        { "type": "Q8_0", "vram_gb": 5 }
+        {
+          "type": "Q2_K",
+          "vram_gb": 2
+        },
+        {
+          "type": "Q4_K_M",
+          "vram_gb": 3
+        },
+        {
+          "type": "Q8_0",
+          "vram_gb": 5
+        }
       ],
-      "gpu_tiers": ["GTX 1060 (6GB)", "GTX 1660 Ti (6GB)", "Arc A380 (6GB)", "Any modern iGPU (shared)"],
+      "gpu_tiers": [
+        "GTX 1060 (6GB)",
+        "GTX 1660 Ti (6GB)",
+        "Arc A380 (6GB)",
+        "Any modern iGPU (shared)"
+      ],
       "arc_tested": true,
       "context_k": 128,
       "reliable_context_k": 16,
@@ -1007,13 +1440,16 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2025-08",
-      "last_verified": "2026-06"
+      "last_verified": "2026-07"
     },
     {
       "name": "nomic-embed-text",
       "provider": "Nomic",
       "type": "local",
-      "tags": ["embedding", "speed"],
+      "tags": [
+        "embedding",
+        "speed"
+      ],
       "desc": "Standard Ollama embedding model for RAG pipelines. CPU or any GPU. Pairs with any LLM for vector search. Use with Cognee and local RAG. 768-dim vectors.",
       "api_string": "ollama pull nomic-embed-text",
       "free_tier": true,
@@ -1024,9 +1460,16 @@
       "active_params_b": 0.137,
       "total_params_b": 0.137,
       "quants": [
-        { "type": "F16", "vram_gb": 1 }
+        {
+          "type": "F16",
+          "vram_gb": 1
+        }
       ],
-      "gpu_tiers": ["CPU", "Any GPU", "iGPU"],
+      "gpu_tiers": [
+        "CPU",
+        "Any GPU",
+        "iGPU"
+      ],
       "arc_tested": true,
       "context_k": 8,
       "reliable_context_k": 8,
