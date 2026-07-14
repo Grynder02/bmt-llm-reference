@@ -261,18 +261,41 @@ async function scrapeHuggingFaceTrending() {
 // ── dedup + merge ─────────────────────────────────────────────────────────────
 
 function normalizeKey(name) {
-  return name.toLowerCase()
-    .replace(/[^a-z0-9]/g, '')
-    .replace(/instruct|chat|it|hf|gguf|q\d.*$/g, '')
-    .trim();
+  return String(name || '').toLowerCase()
+    .replace(/^[^:]+:\s+/, '')                    // drop "Provider: " prefix (OpenRouter display names use ": "; Ollama size tags like "gpt-oss:20b" have no space and must survive)
+    .replace(/\([^)]*\)/g, ' ')                   // drop parenthetical annotations like "(MoE)"
+    .replace(/[-_.:/\s]+/g, ' ')                  // unify separators BEFORE word-stripping so \b works
+    .replace(/\b(instruct|instruction|chat|it|hf|gguf|awq|gptq|fp8|fp16|bf16)\b/g, ' ')
+    .replace(/\bq\d\w*\b/g, ' ')                  // quant tokens (q4, q4_k_m, q8_0) as whole words only
+    .replace(/[^a-z0-9]/g, '');
 }
 
-function alreadyKnown(newName, existingModels) {
-  const nk = normalizeKey(newName);
-  return existingModels.some(m => {
-    const ek = normalizeKey(m.name);
-    return ek === nk || ek.includes(nk) || nk.includes(ek);
-  });
+// Keys for every way a model is commonly referred to: display name plus the
+// last path segment of its OpenRouter/HF id (e.g. "meta-llama/llama-3.3-70b").
+function keysFor(m) {
+  const keys = [];
+  const nameKey = normalizeKey(m.name);
+  if (nameKey) keys.push(nameKey);
+  const id = m.openrouter_id || m.api_string || m.id || '';
+  const idTail = String(id).split('/').pop();
+  const idKey = normalizeKey(idTail);
+  if (idKey) keys.push(idKey);
+  return keys;
+}
+
+function buildKnownKeys(models) {
+  const known = new Set();
+  for (const m of models) for (const k of keysFor(m)) known.add(k);
+  return known;
+}
+
+// Exact key match only. The old substring check (ek.includes(nk)) collapsed
+// distinct versions — "Opus 4.8" normalized to a superstring of "Opus 4",
+// so every new release of a known family was silently skipped.
+function alreadyKnown(model, knownKeys) {
+  const keys = keysFor(model);
+  if (keys.length === 0) return true; // unusable name — treat as noise
+  return keys.some(k => knownKeys.has(k));
 }
 
 // ── main ─────────────────────────────────────────────────────────────────────
@@ -291,19 +314,29 @@ async function main() {
     try { prevAuto = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf8')); }
     catch (e) { console.warn('Could not read previous auto-discovered.json'); }
   }
-  const allKnown = [...existingModels, ...prevAuto.models];
+  // Known = verified models + everything previously auto-discovered.
+  // Track keys in a Set so dedup is exact-match and also covers duplicates
+  // between sources within this same run (a model on both OpenRouter and
+  // Ollama gets added once, by whichever source hits first).
+  const knownKeys = buildKnownKeys([...existingModels, ...prevAuto.models]);
 
   const newEntries = [];
   const log = { date: new Date().toISOString(), sources: {}, new_count: 0 };
+
+  function claim(m) {
+    if (alreadyKnown(m, knownKeys)) return false;
+    for (const k of keysFor(m)) knownKeys.add(k);
+    return true;
+  }
 
   // ── OpenRouter ──
   const orModels = await scrapeOpenRouter();
   log.sources.openrouter = { found: orModels.length, added: 0 };
   for (const m of orModels) {
-    if (alreadyKnown(m.name, allKnown)) continue;
     // Skip obvious noise: very short names, test models, etc
     if (m.name.length < 3) continue;
     if (/test|demo|example|preview-\d{8}/.test(m.name.toLowerCase())) continue;
+    if (!claim(m)) continue;
 
     const entry = blankModel({
       name:          m.name,
@@ -328,8 +361,8 @@ async function main() {
   const ollamaModels = await scrapeOllama();
   log.sources.ollama = { found: ollamaModels.length, added: 0 };
   for (const m of ollamaModels) {
-    if (alreadyKnown(m.name, allKnown)) continue;
     if (m.name.length < 3) continue;
+    if (!claim(m)) continue;
 
     const entry = blankModel({
       name:       m.name,
@@ -350,9 +383,9 @@ async function main() {
   const hfModels = await scrapeHuggingFaceTrending();
   log.sources.huggingface = { found: hfModels.length, added: 0 };
   for (const m of hfModels) {
-    if (alreadyKnown(m.name, allKnown)) continue;
     // Only include models with meaningful download counts to filter noise
     if ((m.downloads || 0) < 10000 && (m.likes || 0) < 50) continue;
+    if (!claim(m)) continue;
 
     const entry = blankModel({
       name:       m.name,
@@ -371,34 +404,30 @@ async function main() {
 
   log.new_count = newEntries.length;
 
-  // Dedup within new entries themselves (same model from multiple sources)
-  const deduped = [];
-  const seen = new Set();
-  for (const e of newEntries) {
-    const k = normalizeKey(e.name);
-    if (!seen.has(k)) { seen.add(k); deduped.push(e); }
-  }
-
-  console.log(`\n✅ New entries found: ${deduped.length} (after dedup)`);
+  console.log(`\n✅ New entries found: ${newEntries.length}`);
   console.log(`   OpenRouter: +${log.sources.openrouter?.added || 0}`);
   console.log(`   Ollama:     +${log.sources.ollama?.added || 0}`);
   console.log(`   HuggingFace:+${log.sources.huggingface?.added || 0}`);
 
-  // Write outputs
+  // Accumulate: keep everything previously discovered and append this run's
+  // finds. Writing only the new entries here (the old behavior) wiped the
+  // backlog of unreviewed discoveries on every run.
+  const combined = [...prevAuto.models, ...newEntries];
+
   const output = {
     _note: "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
     generated: new Date().toISOString(),
-    count: deduped.length,
-    models: deduped,
+    count: combined.length,
+    models: combined,
   };
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2));
   fs.writeFileSync(LOG_PATH, JSON.stringify(log, null, 2));
 
-  console.log(`\nWrote ${deduped.length} entries to data/auto-discovered.json`);
+  console.log(`\nWrote ${combined.length} entries (${newEntries.length} new) to data/auto-discovered.json`);
 
-  // Exit with code 1 if no new models (so CI can skip PR creation)
-  if (deduped.length === 0) {
+  // Exit code 2 if no new models (so CI can skip PR creation)
+  if (newEntries.length === 0) {
     console.log('No new models found — skipping PR.');
     process.exit(2);
   }
