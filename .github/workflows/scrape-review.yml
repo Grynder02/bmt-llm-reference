@@ -1,0 +1,115 @@
+name: Review scrape candidates
+
+# Runs after the nightly scraper finishes. Sanity-reviews the new entries on
+# the standing auto/scrape-candidates PR and either auto-merges (candidates
+# file only — models.json is never touched) or comments with the specific
+# entries that need human eyes.
+
+on:
+  workflow_run:
+    workflows: ["Nightly model scraper"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRANCH: auto/scrape-candidates
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Find standing PR
+        id: pr
+        run: |
+          NUM=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -z "$NUM" ]; then
+            echo "No open candidates PR — nothing to review."
+            echo "number=" >> "$GITHUB_OUTPUT"
+          else
+            echo "number=$NUM" >> "$GITHUB_OUTPUT"
+            echo "Reviewing PR #$NUM"
+          fi
+
+      - name: Guard — PR must only touch the two data files
+        id: guard
+        if: steps.pr.outputs.number != ''
+        run: |
+          FILES=$(gh pr view "${{ steps.pr.outputs.number }}" --repo "$GITHUB_REPOSITORY" --json files --jq '.files[].path')
+          echo "Changed files:"; echo "$FILES"
+          BAD=$(echo "$FILES" | grep -v -E '^data/(auto-discovered|scrape-log)\.json$' || true)
+          if [ -n "$BAD" ]; then
+            echo "unexpected=true" >> "$GITHUB_OUTPUT"
+            gh pr comment "${{ steps.pr.outputs.number }}" --repo "$GITHUB_REPOSITORY" --body "🚫 **Auto-review refused to merge**: this PR changes files outside \`data/auto-discovered.json\` + \`data/scrape-log.json\`:
+          \`\`\`
+          $BAD
+          \`\`\`
+          The auto-merger only ever merges candidate-data updates. Review manually."
+            echo "PR touches unexpected files — flagged, not merging." && exit 0
+          fi
+          echo "unexpected=false" >> "$GITHUB_OUTPUT"
+
+      - name: Run sanity review
+        id: review
+        if: steps.pr.outputs.number != '' && steps.guard.outputs.unexpected == 'false'
+        run: |
+          # Baseline = main's current copy; candidates = the PR branch's copy.
+          cp data/auto-discovered.json /tmp/baseline.json 2>/dev/null || echo '{"models":[]}' > /tmp/baseline.json
+          git fetch --depth 1 origin "$BRANCH"
+          git checkout "origin/$BRANCH" -- data/auto-discovered.json data/scrape-log.json
+          set +e
+          node scripts/review-candidates.js /tmp/baseline.json > /tmp/report.md
+          CODE=$?
+          set -e
+          echo "code=$CODE" >> "$GITHUB_OUTPUT"
+          cat /tmp/report.md
+          cat /tmp/report.md >> "$GITHUB_STEP_SUMMARY"
+          if [ "$CODE" != "0" ] && [ "$CODE" != "1" ] && [ "$CODE" != "3" ]; then
+            echo "Reviewer crashed with exit $CODE" && exit "$CODE"
+          fi
+
+      - name: Auto-merge (clean)
+        if: steps.pr.outputs.number != '' && steps.guard.outputs.unexpected == 'false' && steps.review.outputs.code == '0'
+        run: |
+          NUM="${{ steps.pr.outputs.number }}"
+          {
+            echo "✅ **Auto-review passed — merging.**"
+            echo ""
+            cat /tmp/report.md
+            echo ""
+            echo "_This merge only updates the candidates file (\`auto-discovered.json\`); nothing enters the verified \`models.json\` without human review._"
+          } > /tmp/comment.md
+          gh pr comment "$NUM" --repo "$GITHUB_REPOSITORY" --body-file /tmp/comment.md
+          gh pr ready "$NUM" --repo "$GITHUB_REPOSITORY"
+          gh pr merge "$NUM" --repo "$GITHUB_REPOSITORY" --squash --delete-branch
+
+      - name: Flag for human review (issues found)
+        if: steps.pr.outputs.number != '' && steps.guard.outputs.unexpected == 'false' && steps.review.outputs.code != '0'
+        run: |
+          NUM="${{ steps.pr.outputs.number }}"
+          {
+            echo "🔍 **Auto-review found problems — NOT merging. Human review needed on the entries below.**"
+            echo ""
+            cat /tmp/report.md
+          } > /tmp/comment.md
+          gh pr comment "$NUM" --repo "$GITHUB_REPOSITORY" --body-file /tmp/comment.md
+          if [ "${{ steps.review.outputs.code }}" = "3" ]; then
+            echo "Structural failure (e.g. backlog shrank) — failing the job so it is loud."
+            exit 1
+          fi
