@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-07-24T05:53:00.087Z",
-  "count": 431,
+  "generated": "2026-07-25T05:46:03.200Z",
+  "count": 432,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -12625,6 +12625,35 @@
       "updated": "2025-03",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Claude Opus 5 (Fast)",
+      "provider": "Anthropic",
+      "type": "cloud",
+      "tags": [
+        "speed"
+      ],
+      "desc": "Fast-mode variant of [Opus 5](/anthropic/claude-opus-5) - identical capabilities with higher output speed at 2x pricing relative to regular Opus 5.\n\nLearn more in Anthropic's docs: https://platform.cl…",
+      "api_string": "anthropic/claude-opus-5-fast",
+      "free_tier": false,
+      "openrouter_id": "anthropic/claude-opus-5-fast",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-07",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
