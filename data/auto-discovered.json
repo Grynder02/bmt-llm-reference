@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-07-26T06:09:19.443Z",
-  "count": 433,
+  "generated": "2026-07-28T05:50:37.835Z",
+  "count": 434,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -12683,6 +12683,37 @@
       "updated": "2026-07",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Qwen: Qwen3.7 Flash",
+      "provider": "Qwen (Alibaba)",
+      "type": "cloud",
+      "tags": [
+        "reasoning",
+        "vision",
+        "speed"
+      ],
+      "desc": "Qwen3.7 Flash is a vision-language reasoning model from Alibaba. It is suited for multimodal agents, visual coding, search, and computer interaction, with strengths in object recognition, spatial unde…",
+      "api_string": "qwen/qwen3.7-flash",
+      "free_tier": false,
+      "openrouter_id": "qwen/qwen3.7-flash",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-07",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
