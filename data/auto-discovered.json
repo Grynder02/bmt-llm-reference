@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-08-01T05:59:54.364Z",
-  "count": 438,
+  "generated": "2026-08-04T05:51:47.911Z",
+  "count": 439,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -12834,6 +12834,36 @@
       "updated": "2026-07",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Qwen: Qwen3.8 Max",
+      "provider": "Qwen (Alibaba)",
+      "type": "cloud",
+      "tags": [
+        "reasoning",
+        "vision"
+      ],
+      "desc": "Qwen3.8 Max is the flagship model in Alibaba's Qwen3.8 series, the general-availability successor to the Qwen3.8 Max Preview. It is a multimodal reasoning model intended for complex reasoning, visual …",
+      "api_string": "qwen/qwen3.8-max",
+      "free_tier": false,
+      "openrouter_id": "qwen/qwen3.8-max",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-08",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
