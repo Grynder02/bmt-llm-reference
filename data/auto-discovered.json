@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-08-04T05:51:47.911Z",
-  "count": 439,
+  "generated": "2026-08-05T05:49:26.873Z",
+  "count": 440,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -12864,6 +12864,35 @@
       "updated": "2026-08",
       "last_verified": "UNVERIFIED",
       "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "bge-base-en-v1.5-course-recommender-v5",
+      "provider": "datasocietyco",
+      "type": "local",
+      "tags": [
+        "embedding"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,819,048 downloads). Description needed.",
+      "api_string": "huggingface: datasocietyco/bge-base-en-v1.5-course-recommender-v5",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2025-01",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
       "_needs_review": true
     }
   ]
