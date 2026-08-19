@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-08-15T03:42:04.553Z",
-  "count": 459,
+  "generated": "2026-08-19T03:49:41.780Z",
+  "count": 460,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -13441,6 +13441,35 @@
       "gpu_tiers": null,
       "arc_tested": null,
       "context_k": 262,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-08",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "Z.ai: GLM 5.3",
+      "provider": "z-ai",
+      "type": "cloud",
+      "tags": [
+        "reasoning"
+      ],
+      "desc": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves.…",
+      "api_string": "z-ai/glm-5.3",
+      "free_tier": false,
+      "openrouter_id": "z-ai/glm-5.3",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1049,
       "reliable_context_k": null,
       "tool_reliability": null,
       "swe_bench": null,
