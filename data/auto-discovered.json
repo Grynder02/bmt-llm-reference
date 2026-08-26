@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-08-23T03:53:17.325Z",
-  "count": 469,
+  "generated": "2026-08-26T03:55:47.802Z",
+  "count": 470,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -13721,6 +13721,35 @@
       ],
       "desc": "⚠ Auto-discovered from HuggingFace (1,821,941 downloads). Description needed.",
       "api_string": "huggingface: prism-ml/Ternary-Bonsai-27B-mlx-2bit",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-07",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Bonsai-27B-mlx-1bit",
+      "provider": "prism-ml",
+      "type": "local",
+      "tags": [
+        "writing"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,903,556 downloads). Description needed.",
+      "api_string": "huggingface: prism-ml/Bonsai-27B-mlx-1bit",
       "free_tier": true,
       "openrouter_id": null,
       "vram_gb": null,
