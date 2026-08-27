@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-08-26T03:55:47.802Z",
-  "count": 470,
+  "generated": "2026-08-27T13:57:40.544Z",
+  "count": 472,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -13768,6 +13768,68 @@
       "updated": "2026-07",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Qwen: Qwen3.8 Flash",
+      "provider": "Qwen (Alibaba)",
+      "type": "cloud",
+      "tags": [
+        "coding",
+        "reasoning",
+        "vision",
+        "speed"
+      ],
+      "desc": "Qwen3.8 Flash is a multimodal reasoning model from Alibaba. It is suited for coding assistance, agentic workflows, visual understanding, document and codebase analysis, desktop interaction, chart anal…",
+      "api_string": "qwen/qwen3.8-flash",
+      "free_tier": false,
+      "openrouter_id": "qwen/qwen3.8-flash",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-08",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "Z.ai: GLM 5.3 Flash",
+      "provider": "z-ai",
+      "type": "cloud",
+      "tags": [
+        "vision",
+        "speed"
+      ],
+      "desc": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-contex…",
+      "api_string": "z-ai/glm-5.3-flash",
+      "free_tier": false,
+      "openrouter_id": "z-ai/glm-5.3-flash",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1311,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-08",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
