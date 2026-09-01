@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-08-30T09:02:30.542Z",
-  "count": 478,
+  "generated": "2026-09-01T08:26:48.965Z",
+  "count": 479,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -14004,6 +14004,37 @@
       "updated": "2026-04",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "IBM: Granite 4.2 8B",
+      "provider": "ibm-granite",
+      "type": "cloud",
+      "tags": [
+        "coding",
+        "reasoning",
+        "math"
+      ],
+      "desc": "Granite 4.2 8B is a dense reasoning model from IBM. It is suited for mathematics, code generation, multilingual dialogue, and agentic workflows that need multi-step reasoning. It supports full, low-ef…",
+      "api_string": "ibm-granite/granite-4.2-8b",
+      "free_tier": false,
+      "openrouter_id": "ibm-granite/granite-4.2-8b",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": 8,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 131,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-09",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
