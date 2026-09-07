@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-09-05T07:30:59.030Z",
-  "count": 490,
+  "generated": "2026-09-07T08:04:23.136Z",
+  "count": 491,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -14357,6 +14357,35 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-03",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "tiny-Qwen3ForCausalLM",
+      "provider": "Qwen (Alibaba)",
+      "type": "local",
+      "tags": [
+        "speed"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,764,512 downloads). Description needed.",
+      "api_string": "huggingface: trl-internal-testing/tiny-Qwen3ForCausalLM",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2025-12",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
       "_needs_review": true
