@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-09-17T08:29:37.588Z",
-  "count": 505,
+  "generated": "2026-09-18T08:04:26.763Z",
+  "count": 506,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -14799,6 +14799,35 @@
       "updated": "2025-07",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Pareto",
+      "provider": "unbiased",
+      "type": "cloud",
+      "tags": [
+        "vision"
+      ],
+      "desc": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks.",
+      "api_string": "unbiased/pareto",
+      "free_tier": false,
+      "openrouter_id": "unbiased/pareto",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 262,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-09",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
