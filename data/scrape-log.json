@@ -1,9 +1,9 @@
 {
-  "date": "2026-09-22T08:21:50.428Z",
+  "date": "2026-09-23T08:23:53.817Z",
   "sources": {
     "openrouter": {
-      "found": 444,
-      "added": 4
+      "found": 454,
+      "added": 6
     },
     "ollama": {
       "found": 60,
@@ -14,5 +14,5 @@
       "added": 0
     }
   },
-  "new_count": 4
+  "new_count": 6
 }
