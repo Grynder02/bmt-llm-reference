@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-09-28T09:31:48.037Z",
-  "count": 529,
+  "generated": "2026-09-29T09:35:48.274Z",
+  "count": 530,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -15503,6 +15503,35 @@
       "updated": "2026-09",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Anthropic: Claude Sonnet 5.5",
+      "provider": "Anthropic",
+      "type": "cloud",
+      "tags": [
+        "writing"
+      ],
+      "desc": "Claude Sonnet 5.5 is Anthropic's Sonnet-class model for well-scoped everyday work, succeeding Claude Sonnet 5 as a direct upgrade. It is especially strong at building features, fixing bugs, and produc…",
+      "api_string": "anthropic/claude-sonnet-5.5",
+      "free_tier": false,
+      "openrouter_id": "anthropic/claude-sonnet-5.5",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-09",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
