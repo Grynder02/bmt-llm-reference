@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-03T08:58:25.547Z",
-  "count": 536,
+  "generated": "2026-10-05T10:10:39.127Z",
+  "count": 537,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -15709,6 +15709,35 @@
       "updated": "2026-10",
       "last_verified": "UNVERIFIED",
       "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "all-MiniLM-L6-v2-onnx",
+      "provider": "Qdrant",
+      "type": "local",
+      "tags": [
+        "embedding"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,332,964 downloads). Description needed.",
+      "api_string": "huggingface: Qdrant/all-MiniLM-L6-v2-onnx",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-09",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
       "_needs_review": true
     }
   ]
