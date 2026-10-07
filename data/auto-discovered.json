@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-05T10:10:39.127Z",
-  "count": 537,
+  "generated": "2026-10-07T10:00:52.634Z",
+  "count": 539,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -15738,6 +15738,66 @@
       "updated": "2026-09",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Google: Nano Banana 2.1",
+      "provider": "Google",
+      "type": "cloud",
+      "tags": [
+        "vision",
+        "speed"
+      ],
+      "desc": "Nano Banana 2.1 (Gemini Nano Banana 2.1) is Google's image generation and editing model on the Flash tier, succeeding Nano Banana 2 and Nano Banana Pro. It improves product recontextualization,...",
+      "api_string": "google/gemini-nano-banana-2.1",
+      "free_tier": false,
+      "openrouter_id": "google/gemini-nano-banana-2.1",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 66,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "Mistral: Mistral Large 4",
+      "provider": "Mistral",
+      "type": "cloud",
+      "tags": [
+        "reasoning",
+        "vision"
+      ],
+      "desc": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 512K-token context window with up...",
+      "api_string": "mistralai/mistral-large-4-0",
+      "free_tier": false,
+      "openrouter_id": "mistralai/mistral-large-4-0",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 524,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
