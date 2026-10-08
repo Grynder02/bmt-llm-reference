@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-07T10:00:52.634Z",
-  "count": 539,
+  "generated": "2026-10-08T10:13:33.279Z",
+  "count": 541,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -15798,6 +15798,64 @@
       "updated": "2026-10",
       "last_verified": "UNVERIFIED",
       "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "Anthropic: Claude Haiku 5.5",
+      "provider": "Anthropic",
+      "type": "cloud",
+      "tags": [
+        "speed"
+      ],
+      "desc": "Claude Haiku 5.5 is Anthropic's small, fast model for high-volume, cost-sensitive work such as summarization, subagents, and browser use. It succeeds Claude Haiku 4.5 with stronger coding, computer us…",
+      "api_string": "anthropic/claude-haiku-5.5",
+      "free_tier": false,
+      "openrouter_id": "anthropic/claude-haiku-5.5",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "NVIDIA-Nemotron-3-Nano-30B-A3B-NVFP4",
+      "provider": "NVIDIA",
+      "type": "local",
+      "tags": [
+        "speed"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,507,232 downloads). Description needed.",
+      "api_string": "huggingface: nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-NVFP4",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-08",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
       "_needs_review": true
     }
   ]
