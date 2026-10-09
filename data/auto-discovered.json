@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-08T10:13:33.279Z",
-  "count": 541,
+  "generated": "2026-10-09T10:14:50.550Z",
+  "count": 542,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -15856,6 +15856,35 @@
       "updated": "2026-08",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "StepFun: Step 5 Preview",
+      "provider": "stepfun",
+      "type": "cloud",
+      "tags": [
+        "writing"
+      ],
+      "desc": "Step 5 Preview is StepFun's flagship model for agentic work, built on a sparse Mixture-of-Experts architecture (27B active / 600B total parameters). It performs strongly in software engineering and pr…",
+      "api_string": "stepfun/step-5-preview",
+      "free_tier": false,
+      "openrouter_id": "stepfun/step-5-preview",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": true,
+      "active_params_b": null,
+      "total_params_b": 27,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
