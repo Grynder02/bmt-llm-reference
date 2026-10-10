@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-09T10:14:50.550Z",
-  "count": 542,
+  "generated": "2026-10-10T09:35:41.671Z",
+  "count": 543,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -15885,6 +15885,35 @@
       "updated": "2026-10",
       "last_verified": "UNVERIFIED",
       "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "Qwen2.5-VL-7B-Instruct-NVFP4",
+      "provider": "Qwen (Alibaba)",
+      "type": "local",
+      "tags": [
+        "vision"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,480,679 downloads). Description needed.",
+      "api_string": "huggingface: nvidia/Qwen2.5-VL-7B-Instruct-NVFP4",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2025-12",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
       "_needs_review": true
     }
   ]
