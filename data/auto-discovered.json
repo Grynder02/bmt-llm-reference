@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-17T07:37:31.074Z",
-  "count": 558,
+  "generated": "2026-10-18T07:53:03.045Z",
+  "count": 560,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -16354,6 +16354,64 @@
       "updated": "2026-10",
       "last_verified": "UNVERIFIED",
       "_source": "ollama",
+      "_needs_review": true
+    },
+    {
+      "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+      "provider": "DeepSeek",
+      "type": "cloud",
+      "tags": [
+        "speed"
+      ],
+      "desc": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model...",
+      "api_string": "deepseek/deepseek-v4.1-flash-1017",
+      "free_tier": false,
+      "openrouter_id": "deepseek/deepseek-v4.1-flash-1017",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": true,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1049,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "Pareto 26.10",
+      "provider": "unbiased",
+      "type": "cloud",
+      "tags": [
+        "vision"
+      ],
+      "desc": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks.",
+      "api_string": "unbiased/pareto-26.10",
+      "free_tier": false,
+      "openrouter_id": "unbiased/pareto-26.10",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1049,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
