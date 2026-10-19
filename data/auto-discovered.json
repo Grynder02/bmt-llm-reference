@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-18T07:53:03.045Z",
-  "count": 560,
+  "generated": "2026-10-19T08:37:51.050Z",
+  "count": 561,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -16412,6 +16412,35 @@
       "updated": "2026-10",
       "last_verified": "UNVERIFIED",
       "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "distiluse-base-multilingual-cased-v1",
+      "provider": "sentence-transformers",
+      "type": "local",
+      "tags": [
+        "embedding"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,440,774 downloads). Description needed.",
+      "api_string": "huggingface: sentence-transformers/distiluse-base-multilingual-cased-v1",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2025-03",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
       "_needs_review": true
     }
   ]
