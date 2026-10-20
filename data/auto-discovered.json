@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-19T08:37:51.050Z",
-  "count": 561,
+  "generated": "2026-10-20T08:18:41.194Z",
+  "count": 563,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -16441,6 +16441,65 @@
       "updated": "2025-03",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "MiniMax: MiniMax M3.1 Flash (free)",
+      "provider": "minimax",
+      "type": "cloud",
+      "tags": [
+        "vision",
+        "speed"
+      ],
+      "desc": "MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compared with M3, it delivers significant improvements across multiple benchmarks, particularly in complex agentic tasks, coding, and cybersecuri…",
+      "api_string": "minimax/minimax-m3.1-flash:free",
+      "free_tier": true,
+      "openrouter_id": "minimax/minimax-m3.1-flash:free",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "Inception: Mercury 3",
+      "provider": "inception",
+      "type": "cloud",
+      "tags": [
+        "writing"
+      ],
+      "desc": "Mercury 3 is a diffusion-based language model from Inception, and the lab's most capable model to date. It is suited for agentic workflows and real-time applications where latency compounds, such...",
+      "api_string": "inception/mercury-3",
+      "free_tier": false,
+      "openrouter_id": "inception/mercury-3",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
