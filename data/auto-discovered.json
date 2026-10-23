@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-22T08:25:20.418Z",
-  "count": 565,
+  "generated": "2026-10-23T08:21:46.145Z",
+  "count": 566,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -16540,6 +16540,35 @@
       ],
       "desc": "⚠ Auto-discovered from HuggingFace (1,322,537 downloads). Description needed.",
       "api_string": "huggingface: openbmb/MiniCPM5-2B",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-09",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Swift-1.5-Qwen3.8-27B-GSQ-RCO-GGUF",
+      "provider": "Qwen (Alibaba)",
+      "type": "local",
+      "tags": [
+        "writing"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,326,557 downloads). Description needed.",
+      "api_string": "huggingface: ukisai/Swift-1.5-Qwen3.8-27B-GSQ-RCO-GGUF",
       "free_tier": true,
       "openrouter_id": null,
       "vram_gb": null,
