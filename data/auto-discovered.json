@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-29T09:39:00.064Z",
-  "count": 574,
+  "generated": "2026-10-30T09:45:12.965Z",
+  "count": 575,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -16803,6 +16803,35 @@
       ],
       "desc": "⚠ Auto-discovered from HuggingFace (1,377,570 downloads). Description needed.",
       "api_string": "huggingface: ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "OTel-2.0-Decision-26B-A4B-4bit",
+      "provider": "farbodtavakkoli",
+      "type": "local",
+      "tags": [
+        "writing"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,487,718 downloads). Description needed.",
+      "api_string": "huggingface: farbodtavakkoli/OTel-2.0-Decision-26B-A4B-4bit",
       "free_tier": true,
       "openrouter_id": null,
       "vram_gb": null,
