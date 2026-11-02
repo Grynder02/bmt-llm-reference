@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-10-30T09:45:12.965Z",
-  "count": 575,
+  "generated": "2026-11-02T10:43:25.927Z",
+  "count": 576,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -16848,6 +16848,35 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "gte-small",
+      "provider": "thenlper",
+      "type": "local",
+      "tags": [
+        "embedding"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,441,572 downloads). Description needed.",
+      "api_string": "huggingface: thenlper/gte-small",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2024-11",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
       "_needs_review": true
