@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-03T10:35:41.764Z",
+  "date": "2026-11-05T10:31:30.213Z",
   "sources": {
     "openrouter": {
-      "found": 451,
-      "added": 1
+      "found": 455,
+      "added": 3
     },
     "ollama": {
-      "found": 75,
+      "found": 78,
       "added": 0
     },
     "huggingface": {
@@ -14,5 +14,5 @@
       "added": 0
     }
   },
-  "new_count": 1
+  "new_count": 3
 }
