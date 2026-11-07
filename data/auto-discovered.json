@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-11-06T10:35:24.038Z",
-  "count": 583,
+  "generated": "2026-11-07T09:46:25.580Z",
+  "count": 584,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -17078,6 +17078,35 @@
       "gpu_tiers": null,
       "arc_tested": null,
       "context_k": 2000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-11",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "LiquidAI: LFM3-1.7B",
+      "provider": "liquid",
+      "type": "cloud",
+      "tags": [
+        "reasoning"
+      ],
+      "desc": "A compact 1.7B-parameter text model with a 256K-token context, post-trained for agents, tool calling, and structured outputs. It reasons before it answers. Prompts and outputs may be retained and used…",
+      "api_string": "liquid/lfm-3-1.7b",
+      "free_tier": false,
+      "openrouter_id": "liquid/lfm-3-1.7b",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": 1.7,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 262,
       "reliable_context_k": null,
       "tool_reliability": null,
       "swe_bench": null,
