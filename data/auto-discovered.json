@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-11-14T09:56:29.734Z",
-  "count": 598,
+  "generated": "2026-11-15T10:32:50.439Z",
+  "count": 599,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -17527,6 +17527,35 @@
       "swe_bench": null,
       "gpqa_diamond": null,
       "updated": "2026-09",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "GLM-5.3-Flash-Maya-GGUF",
+      "provider": "peasantsmith",
+      "type": "local",
+      "tags": [
+        "speed"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,370,617 downloads). Description needed.",
+      "api_string": "huggingface: peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-11",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
       "_needs_review": true
