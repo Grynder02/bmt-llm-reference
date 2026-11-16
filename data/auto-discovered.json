@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-11-15T10:32:50.439Z",
-  "count": 599,
+  "generated": "2026-11-16T10:49:05.477Z",
+  "count": 600,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -17558,6 +17558,36 @@
       "updated": "2026-11",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Qwen: Qwen4 Max",
+      "provider": "Qwen (Alibaba)",
+      "type": "cloud",
+      "tags": [
+        "reasoning",
+        "vision"
+      ],
+      "desc": "Qwen4 Max is the flagship model in Alibaba's Qwen4 series. It accepts text, image, and video input and returns text, with a 1M-token context window and reasoning enabled by default....",
+      "api_string": "qwen/qwen4-max",
+      "free_tier": false,
+      "openrouter_id": "qwen/qwen4-max",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 1000,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-11",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
