@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-11-19T11:18:28.788Z",
-  "count": 607,
+  "generated": "2026-11-20T11:05:33.059Z",
+  "count": 608,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -17792,6 +17792,35 @@
       "updated": "2026-08",
       "last_verified": "UNVERIFIED",
       "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Mistral: Pixtral Large 2502",
+      "provider": "Mistral",
+      "type": "cloud",
+      "tags": [
+        "vision"
+      ],
+      "desc": "Pixtral Large 2502 is the February 2025 version of Mistral AI's large multimodal model, following [Pixtral Large 2411](https://openrouter.ai/mistralai/pixtral-large-2411). It accepts text and image in…",
+      "api_string": "mistralai/pixtral-large-2502",
+      "free_tier": false,
+      "openrouter_id": "mistralai/pixtral-large-2502",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 128,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-11",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
       "_needs_review": true
     }
   ]
