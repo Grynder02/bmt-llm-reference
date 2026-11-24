@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-11-23T11:59:46.015Z",
-  "count": 613,
+  "generated": "2026-11-24T13:25:40.471Z",
+  "count": 614,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -17951,6 +17951,35 @@
       ],
       "desc": "⚠ Auto-discovered from HuggingFace (1,257,451 downloads). Description needed.",
       "api_string": "huggingface: OsaurusAI/Diplodocus-preview-GGUF",
+      "free_tier": true,
+      "openrouter_id": null,
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": false,
+      "active_params_b": null,
+      "total_params_b": null,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": null,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-10",
+      "last_verified": "UNVERIFIED",
+      "_source": "huggingface",
+      "_needs_review": true
+    },
+    {
+      "name": "Ornith-1.5-122B-GGUF",
+      "provider": "ornith-ai",
+      "type": "local",
+      "tags": [
+        "writing"
+      ],
+      "desc": "⚠ Auto-discovered from HuggingFace (1,314,730 downloads). Description needed.",
+      "api_string": "huggingface: ornith-ai/Ornith-1.5-122B-GGUF",
       "free_tier": true,
       "openrouter_id": null,
       "vram_gb": null,
