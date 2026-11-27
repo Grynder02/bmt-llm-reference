@@ -1,7 +1,7 @@
 {
   "_note": "Auto-discovered models. Fields with null need human verification before merging into models.json. DO NOT merge entries with last_verified: 'UNVERIFIED'.",
-  "generated": "2026-11-26T12:03:22.728Z",
-  "count": 618,
+  "generated": "2026-11-27T11:54:20.108Z",
+  "count": 619,
   "models": [
     {
       "name": "Anthropic: Claude Fable 5",
@@ -18104,6 +18104,35 @@
       "moe": true,
       "active_params_b": null,
       "total_params_b": 671,
+      "quants": null,
+      "gpu_tiers": null,
+      "arc_tested": null,
+      "context_k": 131,
+      "reliable_context_k": null,
+      "tool_reliability": null,
+      "swe_bench": null,
+      "gpqa_diamond": null,
+      "updated": "2026-11",
+      "last_verified": "UNVERIFIED",
+      "_source": "openrouter",
+      "_needs_review": true
+    },
+    {
+      "name": "inclusionAI: LingSante 3.1 Air VL",
+      "provider": "inclusionai",
+      "type": "cloud",
+      "tags": [
+        "vision"
+      ],
+      "desc": "LingSante 3.1 Air VL is inclusionAI's medical vision-language model, a 124B total / 5.5B active MoE. It takes text and up to 16 images (scans, skin and meal photos, lab...",
+      "api_string": "inclusionai/lingsante-3.1-air-vl",
+      "free_tier": false,
+      "openrouter_id": "inclusionai/lingsante-3.1-air-vl",
+      "vram_gb": null,
+      "vram_note": null,
+      "moe": true,
+      "active_params_b": null,
+      "total_params_b": 124,
       "quants": null,
       "gpu_tiers": null,
       "arc_tested": null,
